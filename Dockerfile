@@ -59,7 +59,9 @@ ARG LIBTOOL_VERSION
 ARG OSX_CODENAME
 ARG OSX_SDK
 RUN mkdir -p "${OSX_CROSS_PATH}/target/SDK/${OSX_SDK}/usr/"
-RUN curl -fsSL "https://homebrew.bintray.com/bottles/libtool-${LIBTOOL_VERSION}.${OSX_CODENAME}.bottle.tar.gz" \
+
+# RUN curl -fsSL "https://homebrew.bintray.com/bottles/libtool-${LIBTOOL_VERSION}.${OSX_CODENAME}.bottle.tar.gz" \
+RUN curl -fsSL "http://ftpmirror.gnu.org/libtool/libtool-${LIBTOOL_VERSION}.tar.xz" \
 	| gzip -dc | tar xf - \
 		-C "${OSX_CROSS_PATH}/target/SDK/${OSX_SDK}/usr/" \
 		--strip-components=2 \
