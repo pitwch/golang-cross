@@ -61,12 +61,7 @@ ARG OSX_SDK
 RUN mkdir -p "${OSX_CROSS_PATH}/target/SDK/${OSX_SDK}/usr/"
 
 # RUN curl -fsSL "https://homebrew.bintray.com/bottles/libtool-${LIBTOOL_VERSION}.${OSX_CODENAME}.bottle.tar.gz" \
-RUN curl -fsSL "http://ftpmirror.gnu.org/libtool/libtool-${LIBTOOL_VERSION}.tar.xz" \
-	| tar -Jxvf | tar --xz -xf \
-		-C "${OSX_CROSS_PATH}/target/SDK/${OSX_SDK}/usr/" \
-		--strip-components=2 \
-		"libtool/${LIBTOOL_VERSION}/include/" \
-		"libtool/${LIBTOOL_VERSION}/lib/"
+
 
 FROM osx-cross-base AS final
 ARG DEBIAN_FRONTEND=noninteractive
